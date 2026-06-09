@@ -1,0 +1,6 @@
+flowchart LR
+  unit["Unit tests\n(tests/unit)"] --> integration["Integration tests\n(tests/integration)"]
+  integration --> ci["CI (GitHub Actions)\nbuild + tests"]
+  ci --> artifacts["Artifacts + Release"]
+  fixtures["Fixtures\n(tests/fixtures)"] --> unit
+  fixtures --> integration

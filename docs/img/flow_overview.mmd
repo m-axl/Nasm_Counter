@@ -1,0 +1,13 @@
+flowchart LR
+  stdin[[stdin]] --> main["main.asm\n(entrypoint)"]
+  main --> lib["lib.asm\n(public API)"]
+  lib --> syscall_write["syscall: write"]
+  lib --> syscall_read["syscall: read"]
+  main --> constants["constantes (buffers/messages)"]
+  subgraph arch_specific [Arquitetura-specific]
+    x86[x86_64]
+    arm[arm64]
+  end
+  main --> x86
+  main --> arm
+  style arch_specific fill:#f9f,stroke:#333,stroke-width:1px

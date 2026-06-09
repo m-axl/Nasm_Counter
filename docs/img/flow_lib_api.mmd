@@ -1,0 +1,16 @@
+flowchart TD
+  subgraph Caller
+    app["main.asm (caller)"]
+  end
+  subgraph Library
+    print["print(ptr,len)"]
+    read["read_input(buf,maxlen)"]
+    atoi["atoi(ptr) -> rax"]
+    itoa["itoa(dest,value) -> len"]
+  end
+  app --> |rsi=ptr rdx=len| print
+  app --> |rsi=buf rdx=maxlen| read
+  read --> |rsi=ptr| atoi
+  atoi --> |rax=value| app
+  app --> |rdi=dest rax=value| itoa
+  itoa --> |rbx=len| app

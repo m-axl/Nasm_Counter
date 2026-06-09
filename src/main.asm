@@ -21,7 +21,7 @@ section .text
 _start:
     ; imprimir mensagem inicial
     mov rsi, msg_input
-    mov rdx, len_input
+    mov rdx, qword [rel len_input]
     call print
 ; ===============================================================
 ; tamanho máximo da entrada. Neste exemplo podemos notar que definimos o buffer com 32 bytes
@@ -47,7 +47,7 @@ _start:
 
     ; imprimir a mensagem de saída
     mov rsi, msg_output
-    mov rdx, len_output
+    mov rdx, qword [rel len_output]
     call print
 
     ; imprimir o resultado

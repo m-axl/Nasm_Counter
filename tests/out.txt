@@ -1,0 +1,2 @@
+Digite um número: 
+O resultado + 1 é: 4

@@ -113,3 +113,22 @@ nasm -f elf64 src/io.asm -o io.o
 nasm -f elf64 src/convert.asm -o convert.o
 nasm -f elf64 src/constants.asm -o constants.o
 ld main.o io.o convert.o constants.o -o contador
+
+## SDLC e Documentação
+
+- Documento SDLC: [docs/SDLC.md](docs/SDLC.md)
+- Arquitetura: [docs/architecture.md](docs/architecture.md)
+- Como contribuir: [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
+
+## Build rápido
+
+```
+make -f build/makefile
+./contador_bshasm
+```
+
+## Testes
+
+```
+tests/run_tests.sh
+```

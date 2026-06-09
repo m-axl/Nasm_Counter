@@ -1,0 +1,8 @@
+flowchart TD
+  A[Checkout repo] --> B[Install toolchain (nasm, build-essential)]
+  B --> C[Build (make -f build/makefile)]
+  C --> D[Run tests (tests/run_tests.sh)]
+  D --> E{Tests pass?}
+  E -- yes --> F[Package artifacts]
+  F --> G[Create GitHub Release (attach artifacts)]
+  E -- no --> H[Fail CI / notify]
